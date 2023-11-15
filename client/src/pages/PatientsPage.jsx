@@ -3,10 +3,7 @@ import { useEffect } from "react";
 import { usePatients } from "../context/PatientsContext";
 import PatientCard from "../components/PatientCard";
 import React, { useMemo } from "react";
-import {
-    MaterialReactTable,
-    useMaterialReactTable,
-} from "material-react-table";
+import { MaterialReactTable, useMaterialReactTable, } from "material-react-table";
 
 function PatientsPage() {
     const { getPatients, patients } = usePatients();
@@ -39,6 +36,11 @@ function PatientsPage() {
                 header: "Telefono",
                 size: 150,
             },
+            {
+                accessorKey: "opciones",
+                header: "Opciones",
+                size: 150,
+            },
         ],
         []
     );
@@ -61,11 +63,15 @@ function PatientsPage() {
             fechanacimiento: item.fechanacimiento,
             email: item.email,
             telefono: item.telefono,
+            opciones: (
+                <Link to={`/patientsprofile/${item._id}`}>
+                    <button className="inline-block px-4 py-2 m-0 mb-0 mr-1 text-xs font-bold leading-normal text-center text-white align-middle transition-all ease-in bg-zinc-800 hover:bg-zinc-600 border-0 rounded-lg shadow-md cursor-pointer tracking-tight-rem hover:-translate-y-px active:opacity-85">
+                        Perfil
+                    </button>
+                </Link>
+            ),
         })), [patients]
     );
-
-    console.log('prueba para mostrar las rows de la tabla')
-    console.log(abc)
 
     // Configuración de la tabla
     const table = useMaterialReactTable({
