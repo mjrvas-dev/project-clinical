@@ -18,63 +18,63 @@ function Navbar() {
                             {/* Seccion 1 - Menu */}
                             <ul className="flex flex-col pl-0 mx-auto mb-0 list-none md-max:w-full lg:flex-row">
                                 {/* Opcion 1 - Notas */}
-                                <div class="inline-block group">
-                                    <a class="hover:opacity-75 px-3 py-4 lg:py-2 flex items-center text-xs font-bold transition-all duration-200 ease-in-out text-white" href="javascript:;"><Link to='/tasks'>Notas</Link></a>
-                                    {/* <div class=" block absolute origin-top-left bg-zinc-700 text-base float-left p-2 pt-0 list-none text-left rounded-lg shadow-lg min-w-48 transition-all duration-200 ease-in-out transform scale-0 opacity-0 group-hover:opacity-100 group-hover:scale-100 border">
-                                        <div class="flex flex-wrap max-lg:pl-4">
-                                            <div class="w-full">
-                                                <p class="uppercase font-bold text-xs px-3 pt-6 pb-2 block w-full whitespace-nowrap bg-transparent text-zinc-400">Opciones</p>
-                                                <div class="pl-0">
-                                                    <a class="text-sm px-3 py-2 block w-full whitespace-nowrap bg-transparent hover:bg-zinc-400 rounded transition-all duration-100"><Link to='/tasks'>Todas</Link></a>
-                                                    <a class="text-sm px-3 py-2 block w-full whitespace-nowrap bg-transparent hover:bg-zinc-400 rounded transition-all duration-100"><Link to='/add-task'>Agregar Nota</Link></a>
+                                <div className="inline-block group">
+                                    <span className="hover:opacity-75 px-3 py-4 lg:py-2 flex items-center text-xs font-bold transition-all duration-200 ease-in-out text-white"><Link to='/tasks'>Notas</Link></span>
+                                    {/* <div className=" block absolute origin-top-left bg-zinc-700 text-base float-left p-2 pt-0 list-none text-left rounded-lg shadow-lg min-w-48 transition-all duration-200 ease-in-out transform scale-0 opacity-0 group-hover:opacity-100 group-hover:scale-100 border">
+                                        <div className="flex flex-wrap max-lg:pl-4">
+                                            <div className="w-full">
+                                                <p className="uppercase font-bold text-xs px-3 pt-6 pb-2 block w-full whitespace-nowrap bg-transparent text-zinc-400">Opciones</p>
+                                                <div className="pl-0">
+                                                    <a className="text-sm px-3 py-2 block w-full whitespace-nowrap bg-transparent hover:bg-zinc-400 rounded transition-all duration-100"><Link to='/tasks'>Todas</Link></a>
+                                                    <a className="text-sm px-3 py-2 block w-full whitespace-nowrap bg-transparent hover:bg-zinc-400 rounded transition-all duration-100"><Link to='/add-task'>Agregar Nota</Link></a>
                                                 </div>
                                             </div>
                                         </div>
                                     </div> */}
                                 </div>
                                 {/* Opcion 2 - Pacientes */}
-                                <div class="inline-block group">
-                                    <a class="hover:opacity-75 px-3 py-4 lg:py-2 flex items-center text-xs font-bold transition-all duration-200 ease-in-out text-white"><Link to='/patients'>Pacientes</Link></a>
-                                    {/* <div class=" block absolute origin-top-left bg-zinc-700 text-base float-left p-2 pt-0 list-none text-left rounded-lg shadow-lg min-w-48 transition-all duration-200 ease-in-out transform scale-0 opacity-0 group-hover:opacity-100 group-hover:scale-100 border">
-                                        <div class="flex flex-wrap max-lg:pl-4">
-                                            <div class="w-full">
-                                                <p class="uppercase font-bold text-xs px-3 pt-6 pb-2 block w-full whitespace-nowrap bg-transparent text-zinc-400">Opciones</p>
-                                                <div class="pl-0">
-                                                    <a class="text-sm px-3 py-2 block w-full whitespace-nowrap bg-transparent hover:bg-zinc-400 rounded transition-all duration-100"><Link to='/add-patient'>Agregar Paciente</Link></a>
-                                                    <a class="text-sm px-3 py-2 block w-full whitespace-nowrap bg-transparent hover:bg-zinc-400 rounded transition-all duration-100"><Link to='/patients'>Mis pacientes</Link></a>
-                                                    <a class="text-sm px-3 py-2 block w-full whitespace-nowrap bg-transparent hover:bg-zinc-400 rounded transition-all duration-100"><Link to='/patientsall'>Todos</Link></a>
+                                <div className="inline-block group">
+                                    <span className="hover:opacity-75 px-3 py-4 lg:py-2 flex items-center text-xs font-bold transition-all duration-200 ease-in-out text-white"><Link to='/patients'>Pacientes</Link></span>
+                                    {/* <div className=" block absolute origin-top-left bg-zinc-700 text-base float-left p-2 pt-0 list-none text-left rounded-lg shadow-lg min-w-48 transition-all duration-200 ease-in-out transform scale-0 opacity-0 group-hover:opacity-100 group-hover:scale-100 border">
+                                        <div className="flex flex-wrap max-lg:pl-4">
+                                            <div className="w-full">
+                                                <p className="uppercase font-bold text-xs px-3 pt-6 pb-2 block w-full whitespace-nowrap bg-transparent text-zinc-400">Opciones</p>
+                                                <div className="pl-0">
+                                                    <a className="text-sm px-3 py-2 block w-full whitespace-nowrap bg-transparent hover:bg-zinc-400 rounded transition-all duration-100"><Link to='/add-patient'>Agregar Paciente</Link></a>
+                                                    <a className="text-sm px-3 py-2 block w-full whitespace-nowrap bg-transparent hover:bg-zinc-400 rounded transition-all duration-100"><Link to='/patients'>Mis pacientes</Link></a>
+                                                    <a className="text-sm px-3 py-2 block w-full whitespace-nowrap bg-transparent hover:bg-zinc-400 rounded transition-all duration-100"><Link to='/patientsall'>Todos</Link></a>
                                                 </div>
                                             </div>
                                         </div>
                                     </div> */}
                                 </div>
                                 {/* Opcion 3 - Doctores */}
-                                {/* <div class="inline-block group">
-                                    <a class="hover:opacity-75 px-3 py-4 lg:py-2 flex items-center text-xs font-bold transition-all duration-200 ease-in-out text-white" href="javascript:;">Doctores
-                                        <i class="ml-1 fas fa-caret-down"></i></a>
-                                    <div class=" block absolute origin-top-left bg-zinc-700 text-base float-left p-2 pt-0 list-none text-left rounded-lg shadow-lg min-w-48 transition-all duration-200 ease-in-out transform scale-0 opacity-0 group-hover:opacity-100 group-hover:scale-100 border">
-                                        <div class="flex flex-wrap max-lg:pl-4">
-                                            <div class="w-full">
-                                                <p class="uppercase font-bold text-xs px-3 pt-6 pb-2 block w-full whitespace-nowrap bg-transparent text-zinc-400">Opciones</p>
-                                                <div class="pl-0">
-                                                    <a class="text-sm px-3 py-2 block w-full whitespace-nowrap bg-transparent hover:bg-zinc-400 rounded transition-all duration-100"><Link to='/doctors'>Todos</Link></a>
-                                                    <a class="text-sm px-3 py-2 block w-full whitespace-nowrap bg-transparent hover:bg-zinc-400 rounded transition-all duration-100"><Link to='/add-doctor'>Agregar Doctor</Link></a>
+                                {/* <div className="inline-block group">
+                                    <a className="hover:opacity-75 px-3 py-4 lg:py-2 flex items-center text-xs font-bold transition-all duration-200 ease-in-out text-white" href="#">Doctores
+                                        <i className="ml-1 fas fa-caret-down"></i></a>
+                                    <div className=" block absolute origin-top-left bg-zinc-700 text-base float-left p-2 pt-0 list-none text-left rounded-lg shadow-lg min-w-48 transition-all duration-200 ease-in-out transform scale-0 opacity-0 group-hover:opacity-100 group-hover:scale-100 border">
+                                        <div className="flex flex-wrap max-lg:pl-4">
+                                            <div className="w-full">
+                                                <p className="uppercase font-bold text-xs px-3 pt-6 pb-2 block w-full whitespace-nowrap bg-transparent text-zinc-400">Opciones</p>
+                                                <div className="pl-0">
+                                                    <a className="text-sm px-3 py-2 block w-full whitespace-nowrap bg-transparent hover:bg-zinc-400 rounded transition-all duration-100"><Link to='/doctors'>Todos</Link></a>
+                                                    <a className="text-sm px-3 py-2 block w-full whitespace-nowrap bg-transparent hover:bg-zinc-400 rounded transition-all duration-100"><Link to='/add-doctor'>Agregar Doctor</Link></a>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div> */}
                                 {/* Opcion 4 - Gestiones */}
-                                <div class="inline-block group">
-                                    <a class="hover:opacity-75 px-3 py-4 lg:py-2 flex items-center text-xs font-bold transition-all duration-200 ease-in-out text-white" href="javascript:;">Logistica
-                                        <i class="ml-1 fas fa-caret-down"></i></a>
-                                    <div class=" block absolute origin-top-left bg-zinc-700 text-base float-left p-2 pt-0 list-none text-left rounded-lg shadow-lg min-w-48 transition-all duration-200 ease-in-out transform scale-0 opacity-0 group-hover:opacity-100 group-hover:scale-100 border">
-                                        <div class="flex flex-wrap max-lg:pl-4">
-                                            <div class="w-full">
-                                                <p class="uppercase font-bold text-xs px-3 pt-6 pb-2 block w-full whitespace-nowrap bg-transparent text-zinc-400">Opciones</p>
-                                                <div class="pl-0">
-                                                    <a class="text-sm px-3 py-2 block w-full whitespace-nowrap bg-transparent hover:bg-zinc-400 rounded transition-all duration-100"><Link to='/tasks'>Almacen</Link></a>
-                                                    <a class="text-sm px-3 py-2 block w-full whitespace-nowrap bg-transparent hover:bg-zinc-400 rounded transition-all duration-100"><Link to='/add-task'>Facturacion</Link></a>
+                                <div className="inline-block group">
+                                    <a className="hover:opacity-75 px-3 py-4 lg:py-2 flex items-center text-xs font-bold transition-all duration-200 ease-in-out text-white" href="#">Logistica
+                                        <i className="ml-1 fas fa-caret-down"></i></a>
+                                    <div className=" block absolute origin-top-left bg-zinc-700 text-base float-left p-2 pt-0 list-none text-left rounded-lg shadow-lg min-w-48 transition-all duration-200 ease-in-out transform scale-0 opacity-0 group-hover:opacity-100 group-hover:scale-100 border">
+                                        <div className="flex flex-wrap max-lg:pl-4">
+                                            <div className="w-full">
+                                                <p className="uppercase font-bold text-xs px-3 pt-6 pb-2 block w-full whitespace-nowrap bg-transparent text-zinc-400">Opciones</p>
+                                                <div className="pl-0">
+                                                    <a className="text-sm px-3 py-2 block w-full whitespace-nowrap bg-transparent hover:bg-zinc-400 rounded transition-all duration-100"><Link to='/tasks'>Almacen</Link></a>
+                                                    <a className="text-sm px-3 py-2 block w-full whitespace-nowrap bg-transparent hover:bg-zinc-400 rounded transition-all duration-100"><Link to='/add-task'>Facturacion</Link></a>
                                                 </div>
                                             </div>
                                         </div>
@@ -83,16 +83,16 @@ function Navbar() {
                             </ul>
                             {/* Seccion 2 - Boton de opciones */}
                             <ul className="hidden pl-0 mb-0 list-none lg:block lg:flex-row">
-                                <div class="inline-block group">
-                                    <a class="hover:opacity-75 px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold transition-all duration-200 ease-in-out text-white" href="javascript:;"><MoreVert sx={{ fontSize: 16 }} /></a>
-                                    <div class=" block absolute origin-top-left bg-zinc-700 text-base float-left p-2 pt-0 list-none text-left rounded-lg shadow-lg min-w-48 transition-all duration-200 ease-in-out transform scale-0 opacity-0 group-hover:opacity-100 group-hover:scale-100 border">
-                                        <div class="flex flex-wrap max-lg:pl-4">
-                                            <div class="w-full">
-                                                <p class="uppercase font-bold text-xs px-3 pt-6 pb-2 block w-full whitespace-nowrap bg-transparent text-zinc-400">Opciones</p>
-                                                <div class="pl-0">
-                                                    {/* <Link to='/doctors'><a class="text-sm px-3 py-2 block w-full whitespace-nowrap bg-transparent hover:bg-zinc-400 rounded transition-all duration-100">Doctores</a></Link> */}
-                                                    <Link to='/profile'><a class="text-sm px-3 py-2 block w-full whitespace-nowrap bg-transparent hover:bg-zinc-400 rounded transition-all duration-100">Perfil</a></Link>
-                                                    <Link to='/' onClick={() => { logout(); }}><a class="text-sm px-3 py-2 block w-full whitespace-nowrap bg-transparent hover:bg-red-700 rounded transition-all duration-100">Salir</a></Link>
+                                <div className="inline-block group">
+                                    <a className="hover:opacity-75 px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold transition-all duration-200 ease-in-out text-white" href="#"><MoreVert sx={{ fontSize: 16 }} /></a>
+                                    <div className=" block absolute origin-top-left bg-zinc-700 text-base float-left p-2 pt-0 list-none text-left rounded-lg shadow-lg min-w-48 transition-all duration-200 ease-in-out transform scale-0 opacity-0 group-hover:opacity-100 group-hover:scale-100 border">
+                                        <div className="flex flex-wrap max-lg:pl-4">
+                                            <div className="w-full">
+                                                <p className="uppercase font-bold text-xs px-3 pt-6 pb-2 block w-full whitespace-nowrap bg-transparent text-zinc-400">Opciones</p>
+                                                <div className="pl-0">
+                                                    {/* <Link to='/doctors'><a className="text-sm px-3 py-2 block w-full whitespace-nowrap bg-transparent hover:bg-zinc-400 rounded transition-all duration-100">Doctores</a></Link> */}
+                                                    <Link to='/profile'><a className="text-sm px-3 py-2 block w-full whitespace-nowrap bg-transparent hover:bg-zinc-400 rounded transition-all duration-100">Perfil</a></Link>
+                                                    <Link to='/' onClick={() => { logout(); }}><a className="text-sm px-3 py-2 block w-full whitespace-nowrap bg-transparent hover:bg-red-700 rounded transition-all duration-100">Salir</a></Link>
                                                 </div>
                                             </div>
                                         </div>

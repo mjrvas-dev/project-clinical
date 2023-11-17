@@ -5,6 +5,10 @@ import PatientCard from "../components/PatientCard";
 import React, { useMemo } from "react";
 import { MaterialReactTable, useMaterialReactTable, } from "material-react-table";
 
+import dayjs from "dayjs";
+import utc from 'dayjs/plugin/utc'
+dayjs.extend(utc);
+
 function PatientsPage() {
     const { getPatients, patients } = usePatients();
 
@@ -18,13 +22,13 @@ function PatientsPage() {
         () => [
             {
                 accessorKey: "nombre",
-                header: "Nombre",
-                size: 150,
+                header: "Nombre Completo",
+                size: 300,
             },
             {
                 accessorKey: "fechanacimiento",
                 header: "Fecha de nacimiento",
-                size: 150,
+                size: 20,
             },
             {
                 accessorKey: "email",
@@ -34,7 +38,7 @@ function PatientsPage() {
             {
                 accessorKey: "telefono",
                 header: "Telefono",
-                size: 150,
+                size: 20,
             },
             {
                 accessorKey: "opciones",
@@ -46,26 +50,15 @@ function PatientsPage() {
     );
 
     // Mapeo de datos para la tabla
-    // let abc = useMemo(
-    //     () => [
-    //         patients.map((item, key) => ({
-    //             nombre: `${item.primernombre} ${item.segundonombre} ${item.primerapellido} ${item.segundoapellido}`,
-    //             fechanacimiento: item.fechanacimiento,
-    //             email: item.email,
-    //             telefono: item.telefono,
-    //         })),
-    //     ],
-    //     []
-    // );
-    let abc = useMemo(
+    let infoPatients = useMemo(
         () => patients.map((item) => ({
-            nombre: `${item.primernombre} ${item.segundonombre} ${item.primerapellido} ${item.segundoapellido}`,
-            fechanacimiento: item.fechanacimiento,
-            email: item.email,
+            nombre: `${item.primernombre} ${item.segundonombre} ${item.primerapellido} ${item.segundoapellido}`.toUpperCase(),
+            fechanacimiento: dayjs(item.fechanacimiento).utc().format("DD/MM/YYYY"),
+            email: item.email.toUpperCase(),
             telefono: item.telefono,
             opciones: (
                 <Link to={`/patientsprofile/${item._id}`}>
-                    <button className="inline-block px-4 py-2 m-0 mb-0 mr-1 text-xs font-bold leading-normal text-center text-white align-middle transition-all ease-in bg-zinc-800 hover:bg-zinc-600 border-0 rounded-lg shadow-md cursor-pointer tracking-tight-rem hover:-translate-y-px active:opacity-85">
+                    <button className="inline-block px-4 py-1.5 m-0 mb-0 mr-1 text-xs font-bold leading-normal text-center text-white align-middle transition-all ease-in bg-zinc-800 hover:bg-zinc-600 border-0 rounded-lg shadow-md cursor-pointer tracking-tight-rem hover:-translate-y-px active:opacity-85">
                         Perfil
                     </button>
                 </Link>
@@ -76,7 +69,7 @@ function PatientsPage() {
     // Configuración de la tabla
     const table = useMaterialReactTable({
         columns,
-        data: abc,
+        data: infoPatients,
     });
 
     // Renderiza un mensaje si no hay registros

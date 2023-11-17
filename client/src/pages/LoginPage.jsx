@@ -28,7 +28,7 @@ function LoginPage() {
                 }
 
                 <h1 className="mt-2 mb-4 text-2xl font-bold text-center">Inicia Sesion</h1>
-                <div class="mb-6 text-center text-slate-500">
+                <div className="mb-6 text-center text-slate-500">
                     <small>Introduzca sus credenciales</small>
                 </div>
                 <form onSubmit={onSubmit}>

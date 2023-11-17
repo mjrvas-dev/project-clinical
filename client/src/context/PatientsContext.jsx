@@ -23,12 +23,12 @@ export function PatientProvider({ children }) {
         } catch (error) {
             console.error(error);
         }
-    }
+    };
 
     const createPatient = async (patient) => {
         const res = await createPatientRequest(patient);
         console.log(res);
-    }
+    };
 
     const deletePatient = async (id) => {
         try {
@@ -37,7 +37,7 @@ export function PatientProvider({ children }) {
         } catch (error) {
             console.log(error);
         }
-    }
+    };
 
     const getPatient = async (id) => {
         try {
@@ -46,7 +46,7 @@ export function PatientProvider({ children }) {
         } catch (error) {
             console.log(error);
         }
-    }
+    };
 
     const updatePatient = async (id, patient) => {
         try {
@@ -54,7 +54,7 @@ export function PatientProvider({ children }) {
         } catch (error) {
             console.log(error);
         }
-    }
+    };
 
     return (
         <PatientContext.Provider value={{

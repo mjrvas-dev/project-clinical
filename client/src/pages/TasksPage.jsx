@@ -11,17 +11,17 @@ function TasksPage() {
         getTasks();
     }, []);
 
-    if (tasks.length === 0) return (<div alert="" class="p-4 pr-12 mb-4 text-white border border-blue-300 border-solid rounded-lg bg-gradient-to-tl from-blue-600 to-violet-600 text-center">No existen registros en el sistema.<Link to='/add-task'> Crear Tarea</Link></div>);
+    if (tasks.length === 0) return (<div alert="" className="p-4 pr-12 mb-4 text-white border border-blue-300 border-solid rounded-lg bg-gradient-to-tl from-blue-600 to-violet-600 text-center">No existen registros en el sistema.<Link to='/add-task'> Crear Tarea</Link></div>);
 
     return (
         <div className="flex flex-wrap my-3 -mx-0 items-center justify-center">
-            <div class="flex items-center">
-                <div class="mx-4">
+            <div className="flex items-center">
+                <div className="mx-4">
                     <h5 className="mb-0 font-bold dark:text-white">Listado Notas</h5>
                     <p className="mb-0 text-sm leading-normal">General</p>
                 </div>
             </div>
-            <div class="ml-auto text-right mx-4">
+            <div className="ml-auto text-right mx-4">
                 <Link to={'/add-task'}
                     className="inline-block px-4 py-1.5 mb-0 text-xs font-bold leading-normal text-center text-white align-middle transition-all ease-in bg-green-600 border-0 rounded-lg shadow-md cursor-pointer hover:-translate-y-px hover:shadow-xs active:opacity-85 tracking-tight-rem"
                 >Nueva Nota</Link>

@@ -43,13 +43,13 @@ function TaskFormPage() {
 
     return (
         <div className='flex flex-wrap my-3 -mx-0 items-center justify-center'>
-            <div class="flex items-center">
-                <div class="mx-4">
+            <div className="flex items-center">
+                <div className="mx-4">
                     <h5 className="mb-0 font-bold dark:text-white">Nueva Nota</h5>
                     <p className="mb-0 text-sm leading-normal">Informacion obligatoria</p>
                 </div>
             </div>
-            <div class="ml-auto text-right mx-4">
+            <div className="ml-auto text-right mx-4">
                 <Link to={'/tasks'}
                     className="inline-block px-4 py-1.5 mb-0 text-xs font-bold leading-normal text-center text-white align-middle transition-all ease-in bg-slate-600 border-0 rounded-lg shadow-md cursor-pointer hover:-translate-y-px hover:shadow-xs active:opacity-85 tracking-tight-rem"
                 >Regresar</Link>

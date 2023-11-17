@@ -50,13 +50,13 @@ function PatientFormPage() {
 
     return (
         <div className='flex flex-wrap my-3 -mx-0 items-center justify-center'>
-            <div class="flex items-center">
-                <div class="mx-4">
+            <div className="flex items-center">
+                <div className="mx-4">
                     <h5 className="mb-0 font-bold dark:text-white">Nuevo Paciente</h5>
                     <p className="mb-0 text-sm leading-normal">Informacion obligatoria</p>
                 </div>
             </div>
-            <div class="ml-auto text-right mx-4">
+            <div className="ml-auto text-right mx-4">
                 <Link to={'/patients'}
                     className="inline-block px-4 py-1.5 mb-0 text-xs font-bold leading-normal text-center text-white align-middle transition-all ease-in bg-slate-600 border-0 rounded-lg shadow-md cursor-pointer hover:-translate-y-px hover:shadow-xs active:opacity-85 tracking-tight-rem"
                 >Regresar</Link>
@@ -194,11 +194,11 @@ function PatientFormPage() {
                                     {...register("historialmedico")}
                                     className="w-full bg-zinc-700 text-white px-4 py-2 rounded-lg my-2 uppercase"
                                 /> */}
-                                <div class="relative w-full min-w-[200px]">
+                                <div className="relative w-full min-w-[200px]">
                                     <textarea id="historialmedico"
                                         {...register("historialmedico")}
                                         placeholder="Incluir información completa y detallada de la salud del paciente"
-                                        class="peer h-full min-h-[100px] w-full resize-none border-b border-blue-gray-200 bg-transparent pt-4 pb-1.5 font-sans text-sm font-normal text-blue-gray-700 outline outline-0 transition-all placeholder-shown:border-blue-gray-200 focus:border-indigo-500 focus:outline-0 disabled:resize-none disabled:border-0 disabled:bg-blue-gray-50 uppercase"
+                                        className="peer h-full min-h-[100px] w-full resize-none border-b border-blue-gray-200 bg-transparent pt-4 pb-1.5 font-sans text-sm font-normal text-blue-gray-700 outline outline-0 transition-all placeholder-shown:border-blue-gray-200 focus:border-indigo-500 focus:outline-0 disabled:resize-none disabled:border-0 disabled:bg-blue-gray-50 uppercase"
                                     ></textarea>
                                 </div>
                             </div>
@@ -208,11 +208,11 @@ function PatientFormPage() {
                                     {...register("medicamento")}
                                     className="w-full bg-zinc-700 text-white px-4 py-2 rounded-lg my-2 uppercase"
                                 /> */}
-                                <div class="relative w-full min-w-[200px]">
+                                <div className="relative w-full min-w-[200px]">
                                     <textarea id="medicamento"
                                         {...register("medicamento")}
                                         placeholder="Incluye el nombre de los medicamentos, la dosis, la frecuencia de toma y el propósito"
-                                        class="peer h-full min-h-[100px] w-full resize-none border-b border-blue-gray-200 bg-transparent pt-4 pb-1.5 font-sans text-sm font-normal text-blue-gray-700 outline outline-0 transition-all placeholder-shown:border-blue-gray-200 focus:border-indigo-500 focus:outline-0 disabled:resize-none disabled:border-0 disabled:bg-blue-gray-50 uppercase"
+                                        className="peer h-full min-h-[100px] w-full resize-none border-b border-blue-gray-200 bg-transparent pt-4 pb-1.5 font-sans text-sm font-normal text-blue-gray-700 outline outline-0 transition-all placeholder-shown:border-blue-gray-200 focus:border-indigo-500 focus:outline-0 disabled:resize-none disabled:border-0 disabled:bg-blue-gray-50 uppercase"
                                     ></textarea>
                                 </div>
                             </div>
