@@ -13,6 +13,7 @@ import DoctorFormPage from './pages/DoctorFormPage'
 import PatientsPage from './pages/PatientsPage'
 import PatientFormPage from './pages/PatientFormPage'
 import PatientProfileFormPage from './pages/PatientProfileFormPage'
+import DateingPage from './pages/DateingPage'
 
 import ProtectedRoute from './ProtectedRoute'
 import { TaskProvider } from './context/TasksContext'
@@ -46,6 +47,7 @@ function App() {
                     <Route path='/add-patient' element={<PatientFormPage />} />
                     <Route path='/patients/:id' element={<PatientFormPage />} />
                     <Route path='/patientsprofile/:id' element={<PatientProfileFormPage />} />
+                    <Route path='/dateing' element={<DateingPage />} />
                   </Route>
                 </Routes>
               </main>

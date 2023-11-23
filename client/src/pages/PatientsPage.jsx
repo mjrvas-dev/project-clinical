@@ -7,7 +7,7 @@ import { MaterialReactTable, useMaterialReactTable, } from "material-react-table
 import { MRT_Localization_ES } from 'material-react-table/locales/es';
 
 import dayjs from "dayjs";
-import utc from 'dayjs/plugin/utc'
+import utc from 'dayjs/plugin/utc';
 dayjs.extend(utc);
 
 function PatientsPage() {
@@ -21,33 +21,12 @@ function PatientsPage() {
     // Configuración de las columnas de la tabla
     const columns = useMemo(
         () => [
-            {
-                accessorKey: "nombre",
-                header: "Nombre Completo",
-                size: 300,
-            },
-            {
-                accessorKey: "fechanacimiento",
-                header: "Fecha de nacimiento",
-                size: 20,
-            },
-            {
-                accessorKey: "email",
-                header: "Email",
-                size: 150,
-            },
-            {
-                accessorKey: "telefono",
-                header: "Telefono",
-                size: 20,
-            },
-            {
-                accessorKey: "opciones",
-                header: "Opciones",
-                size: 150,
-            },
-        ],
-        []
+            { accessorKey: "nombre", header: "Nombre Completo", size: 300 },
+            { accessorKey: "fechanacimiento", header: "Fecha de nacimiento", size: 20 },
+            { accessorKey: "email", header: "Email", size: 150 },
+            { accessorKey: "telefono", header: "Telefono", size: 20 },
+            { accessorKey: "opciones", header: "Opciones", size: 150 },
+        ],[]
     );
 
     // Mapeo de datos para la tabla
