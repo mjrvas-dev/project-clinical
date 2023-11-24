@@ -19,26 +19,27 @@ const DateingSidebar = ({
                 placeholder="Nombre del paciente"
                 value={newAppointment.patientName}
                 onChange={(e) => setNewAppointment({ ...newAppointment, patientName: e.target.value })}
-                className="w-full mb-2 p-2 bg-gray-700 text-white"
+                className="w-full bg-gray-700 text-white px-4 py-2 my-2 mb-2 rounded-md"
+                autoFocus="autofocus"
             />
             <input
                 type="date"
                 value={newAppointment.date}
                 onChange={(e) => setNewAppointment({ ...newAppointment, date: e.target.value })}
-                className="w-full mb-2 p-2 bg-gray-700 text-white"
+                className="w-full bg-gray-700 text-white px-4 py-2 my-2 mb-2 rounded-md"
             />
             <input
                 type="time"
                 value={newAppointment.time}
                 onChange={(e) => setNewAppointment({ ...newAppointment, time: e.target.value })}
-                className="w-full mb-2 p-2 bg-gray-700 text-white"
+                className="w-full bg-gray-700 text-white px-4 py-2 my-2 mb-6 rounded-md"
             />
             {newAppointment.id ? (
-                <button onClick={handleUpdateAppointment} className="bg-blue-500 text-white py-1 px-2 rounded mr-2">Actualizar Cita</button>
+                <button onClick={handleUpdateAppointment} className="w-full bg-indigo-500 text-white px-4 py-2 rounded-md my-2 mb-2">Actualizar Cita</button>
             ) : (
-                <button onClick={handleAddAppointment} className="bg-green-500 text-white py-1 px-2 rounded mr-2">Agregar Cita</button>
+                <button onClick={handleAddAppointment} className="w-full bg-indigo-500 text-white px-4 py-2 rounded-md my-2 mb-2">Agregar Cita</button>
             )}
-            <button onClick={()=>{resetForm();closeSidebar();}}>Cancelar</button>
+            <button onClick={()=>{resetForm();closeSidebar();}} className="w-full bg-zinc-700 text-white px-4 py-2 rounded-md my-2 mb-2">Cancelar</button>
         </div>
     );
 };
