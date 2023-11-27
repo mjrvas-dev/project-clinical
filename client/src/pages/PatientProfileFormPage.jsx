@@ -43,16 +43,11 @@ function PatientProfileFormPage() {
             <div className="flex items-center">
                 <div className="mx-4">
                     <h5 className="mb-0 font-bold dark:text-white">Perfil Paciente</h5>
-                    <p className="mb-0 text-sm leading-normal">
-                        Información necesaria para darle un seguimiento.
-                    </p>
+                    <p className="mb-0 text-sm leading-normal">Información necesaria para darle un seguimiento.</p>
                 </div>
             </div>
             <div className="ml-auto text-right mx-4">
-                <Link
-                    to='/patients'
-                    className="inline-block px-4 py-1.5 mb-0 text-xs font-bold leading-normal text-center text-white align-middle transition-all ease-in bg-slate-600 border-0 rounded-lg shadow-md cursor-pointer hover:-translate-y-px hover:shadow-xs active:opacity-85 tracking-tight-rem"
-                >
+                <Link to='/patients' className="inline-block px-4 py-1.5 mb-0 text-xs font-bold leading-normal text-center text-white align-middle transition-all ease-in bg-slate-600 border-0 rounded-lg shadow-md cursor-pointer hover:-translate-y-px hover:shadow-xs active:opacity-85 tracking-tight-rem">
                     Regresar
                 </Link>
             </div>

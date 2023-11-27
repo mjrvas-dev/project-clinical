@@ -7,6 +7,7 @@ import authRoutes from "./routes/auth.routes.js"
 import taskRoutes from "./routes/tasks.routes.js"
 import doctorRoutes from "./routes/doctors.routes.js"
 import patientRoutes from "./routes/patients.routes.js"
+import typeserviceRoutes from "./routes/typeservices.routes.js"
 
 const app = express();
 
@@ -22,5 +23,6 @@ app.use("/api", authRoutes);
 app.use("/api", taskRoutes);
 app.use("/api", doctorRoutes);
 app.use("/api", patientRoutes);
+app.use("/api", typeserviceRoutes);
 
 export default app;

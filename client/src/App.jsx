@@ -14,11 +14,13 @@ import PatientsPage from './pages/PatientsPage'
 import PatientFormPage from './pages/PatientFormPage'
 import PatientProfileFormPage from './pages/PatientProfileFormPage'
 import DateingPage from './pages/DateingPage'
+import TypeServiesPage from './pages/TypeServicesPage'
 
 import ProtectedRoute from './ProtectedRoute'
 import { TaskProvider } from './context/TasksContext'
 import { DoctorProvider } from './context/DoctorsContext'
 import { PatientProvider } from './context/PatientsContext'
+import { TypeServiceProvider } from './context/TypeServicesContext'
 import Navbar from './components/Navbar'
 
 function App() {
@@ -26,33 +28,36 @@ function App() {
     <AuthProvider>
       <TaskProvider>
         <DoctorProvider>
-          <PatientProvider>
-            <BrowserRouter>
-              <main className='container mx-auto px-10'>
-                <Navbar />
-                <Routes>
-                  <Route path='/' element={<HomePage />} />
-                  <Route path='/login' element={<LoginPage />} />
-                  <Route path='/register' element={<RegisterPage />} />
-                  <Route element={<ProtectedRoute />}>
-                    <Route path='/calendar' element={<CalendarPage />} />
-                    <Route path='/profile' element={<ProfilePage />} />
-                    <Route path='/tasks' element={<TasksPage />} />
-                    <Route path='/add-task' element={<TaskFormPage />} />
-                    <Route path='/tasks/:id' element={<TaskFormPage />} />
-                    <Route path='/doctors' element={<DoctorsPage />} />
-                    <Route path='/add-doctor' element={<DoctorFormPage />} />
-                    <Route path='/doctors/:id' element={<DoctorFormPage />} />
-                    <Route path='/patients' element={<PatientsPage />} />
-                    <Route path='/add-patient' element={<PatientFormPage />} />
-                    <Route path='/patients/:id' element={<PatientFormPage />} />
-                    <Route path='/patientsprofile/:id' element={<PatientProfileFormPage />} />
-                    <Route path='/dateing' element={<DateingPage />} />
-                  </Route>
-                </Routes>
-              </main>
-            </BrowserRouter>
-          </PatientProvider>
+          <TypeServiceProvider>
+            <PatientProvider>
+              <BrowserRouter>
+                <main className='container mx-auto px-10'>
+                  <Navbar />
+                  <Routes>
+                    <Route path='/' element={<HomePage />} />
+                    <Route path='/login' element={<LoginPage />} />
+                    <Route path='/register' element={<RegisterPage />} />
+                    <Route element={<ProtectedRoute />}>
+                      <Route path='/calendar' element={<CalendarPage />} />
+                      <Route path='/profile' element={<ProfilePage />} />
+                      <Route path='/tasks' element={<TasksPage />} />
+                      <Route path='/add-task' element={<TaskFormPage />} />
+                      <Route path='/tasks/:id' element={<TaskFormPage />} />
+                      <Route path='/doctors' element={<DoctorsPage />} />
+                      <Route path='/add-doctor' element={<DoctorFormPage />} />
+                      <Route path='/doctors/:id' element={<DoctorFormPage />} />
+                      <Route path='/patients' element={<PatientsPage />} />
+                      <Route path='/add-patient' element={<PatientFormPage />} />
+                      <Route path='/patients/:id' element={<PatientFormPage />} />
+                      <Route path='/patientsprofile/:id' element={<PatientProfileFormPage />} />
+                      <Route path='/dateing' element={<DateingPage />} />
+                      <Route path='/typeservies' element={<TypeServiesPage />} />
+                    </Route>
+                  </Routes>
+                </main>
+              </BrowserRouter>
+            </PatientProvider>
+          </TypeServiceProvider>
         </DoctorProvider>
       </TaskProvider>
     </AuthProvider>

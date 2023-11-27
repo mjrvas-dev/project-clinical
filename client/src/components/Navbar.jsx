@@ -28,6 +28,7 @@ function Navbar() {
                 {/* Opción 5 - Logistica */}
                 <NavbarDropdownItem title="Logistica">
                   <NavbarDropdownLink to="/tasks">Almacen</NavbarDropdownLink>
+                  <NavbarDropdownLink to="/typeservies">Tipos Servicios</NavbarDropdownLink>
                   <NavbarDropdownLink to="/add-task">Facturacion</NavbarDropdownLink>
                 </NavbarDropdownItem>
               </ul>
