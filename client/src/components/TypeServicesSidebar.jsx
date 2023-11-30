@@ -8,12 +8,12 @@ const TypeServicesSidebar = ({
     closeSidebar,
 }) => {
     const resetForm = () => {
-        setNewService({ id: '', servicionombre: '' });
+        setNewService({ _id: '', servicionombre: '' });
     };
 
     return (
         <div className="fixed top-0 right-0 h-full w-1/4 bg-gray-800 p-4 z-50">
-            <h2 className="text-white mb-4">{newService.id ? 'Editar Servicio' : 'Agregar Nuevo Servicio'}</h2>
+            <h2 className="text-white mb-4">{newService._id ? 'Editar Servicio' : 'Agregar Nuevo Servicio'}</h2>
             <input
                 type="text"
                 placeholder="Nombre del servicio"
@@ -22,7 +22,7 @@ const TypeServicesSidebar = ({
                 className="w-full bg-gray-700 text-white px-4 py-2 my-2 mb-2 rounded-md uppercase"
                 autoFocus="autofocus"
             />
-            {newService.id ? (
+            {newService._id ? (
                 <button onClick={handleUpdateService} className="w-full bg-indigo-500 text-white px-4 py-2 rounded-md my-2 mb-2">Actualizar Servicio</button>
             ) : (
                 <button onClick={handleAddService} className="w-full bg-indigo-500 text-white px-4 py-2 rounded-md my-2 mb-2">Agregar Servicio</button>

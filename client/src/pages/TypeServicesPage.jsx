@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useMemo } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, json } from 'react-router-dom';
 import { MaterialReactTable, useMaterialReactTable } from 'material-react-table';
 import { MRT_Localization_ES } from 'material-react-table/locales/es';
 import TypeServicesSidebar from '../components/TypeServicesSidebar';
@@ -9,48 +9,102 @@ import { useTypeServices } from '../context/TypeServicesContext';
 // Componente principal del gestor de servicios
 const TypeServicePage = () => {
   const [services, setServices] = useState([]);
-  const [newService, setNewService] = useState({ servicionombre: '', });
+  const [newService, setNewService] = useState({ servicionombre: '' });
   const [isSidebarVisible, setIsSidebarVisible] = useState(false);
 
-  const { createTypeService, getTypeService, updateTypeService } = useTypeServices();
+  const { createTypeService, getTypeServices, updateTypeService, deleteTypeService } = useTypeServices();
 
   useEffect(() => {
     // Puedes cargar los servicios desde algún servicio o fuente de datos aquí.
     // Por ahora, solo usaremos un conjunto de servicios de ejemplo.
     setServices([
-      { id: '1', servicionombre: 'Servicio A' },
-      { id: '2', servicionombre: 'Servicio B' },
-      // Agrega más servicios si es necesario
+      {
+        "_id": "65661bf555f534f5d8802016",
+        "servicionombre": "a",
+        "status": 1,
+        "user": {
+          "_id": "652b1b0a3849794592d82bda",
+          "username": "Joel",
+          "email": "joel@joel.com",
+          "password": "$2a$10$BFZp0SSYapM2e998Gt9xq.BBKSGrH.nCeJRTcdCTU27nK19q91OFK",
+          "createdAt": "2023-10-14T22:49:46.781Z",
+          "updatedAt": "2023-10-14T22:49:46.781Z",
+          "__v": 0
+        },
+        "createdAt": "2023-11-28T16:57:25.460Z",
+        "updatedAt": "2023-11-28T18:18:13.086Z",
+        "__v": 0
+      },
+      {
+        "_id": "65662c6255f534f5d8808b6c",
+        "servicionombre": "b",
+        "status": 1,
+        "user": {
+          "_id": "652b1b0a3849794592d82bda",
+          "username": "Joel",
+          "email": "joel@joel.com",
+          "password": "$2a$10$BFZp0SSYapM2e998Gt9xq.BBKSGrH.nCeJRTcdCTU27nK19q91OFK",
+          "createdAt": "2023-10-14T22:49:46.781Z",
+          "updatedAt": "2023-10-14T22:49:46.781Z",
+          "__v": 0
+        },
+        "createdAt": "2023-11-28T18:07:30.369Z",
+        "updatedAt": "2023-11-28T18:28:24.743Z",
+        "__v": 0
+      }
     ]);
+    
   }, []);
 
   const handleAddService = () => {
-    setServices([...services, { ...newService, id: String(Date.now()) }]);
-    setNewService({ id: '', servicionombre: '' });
+    /* setServices([...services, { ...newService, id: String(Date.now()) }]);
+    setNewService({ id: '', servicionombre: '' }); */
     console.log(newService);
     createTypeService(newService);
     closeSidebar();
   };
 
-  const handleEditService = (id) => {
-    const selectedService = services.find(service => service.id === id);
+  const handleEditService = (_id) => {
+    const selectedService = services.find(service => service._id === _id);
     setNewService({ ...selectedService });
     openSidebar();
   };
 
-  const handleUpdateService = () => {
-    setServices(services.map(service =>
-      service.id === newService.id ? { ...newService } : service
-    ));
-    setNewService({ id: '', servicionombre: '' });
-    closeSidebar();
+  const handleUpdateService = async () => {
+    try {
+      // Actualiza el servicio utilizando updateTypeService
+      await updateTypeService(newService._id, newService);
+
+      // Actualiza el estado local con el servicio actualizado
+      /* setServices(services.map(service =>
+        service._id === newService._id ? { ...service, ...newService } : service
+      )); */
+
+      // Restablece el estado de newService y cierra la barra lateral
+      setNewService({ servicionombre: '' });
+      closeSidebar();
+    } catch (error) {
+      console.error('Error al actualizar servicio:', error);
+    }
   };
 
-  const handleDeleteService = (id) => {
+
+  const handleDeleteService = async (_id) => {
     const isConfirmed = window.confirm("¿Estás seguro de que deseas eliminar este servicio?");
     if (isConfirmed) {
-      setServices(services.filter(service => service.id !== id));
-      closeSidebar();
+      try {
+        // Eliminar el servicio utilizando deleteTypeService
+        await deleteTypeService(_id);
+
+        // Actualizar el estado local con los servicios actualizados
+        /* const updatedServices = await getTypeServices();
+        setServices(updatedServices); */
+
+        // Cerrar la barra lateral
+        closeSidebar();
+      } catch (error) {
+        console.error('Error al eliminar servicio:', error);
+      }
     }
   };
 
@@ -89,8 +143,8 @@ const TypeServicePage = () => {
         size: 150,
         Cell: ({ row }) => (
           <EditDeleteButtons
-            onEdit={() => handleEditService(row.original.id)}
-            onDelete={() => handleDeleteService(row.original.id)}
+            onEdit={() => handleEditService(row.original._id)}
+            onDelete={() => handleDeleteService(row.original._id)}
           />
         ),
       },
