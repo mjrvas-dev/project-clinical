@@ -2,7 +2,7 @@ import React, { useState, useEffect, useMemo } from 'react';
 import { Link, json } from 'react-router-dom';
 import { MaterialReactTable, useMaterialReactTable } from 'material-react-table';
 import { MRT_Localization_ES } from 'material-react-table/locales/es';
-import TypeServicesSidebar from '../components/TypeServicesSidebar';
+import TypeServiceSidebar from '../components/TypeServiceSidebar';
 
 import { useTypeServices } from '../context/TypeServicesContext';
 
@@ -12,74 +12,44 @@ const TypeServicePage = () => {
   const [newService, setNewService] = useState({ servicionombre: '' });
   const [isSidebarVisible, setIsSidebarVisible] = useState(false);
 
-  const { createTypeService, getTypeServices, updateTypeService, deleteTypeService } = useTypeServices();
+  const { createTypeService, updateTypeService, deleteTypeService } = useTypeServices();
+  const { getTypeServices, typeservices } = useTypeServices();
 
   useEffect(() => {
-    // Puedes cargar los servicios desde algún servicio o fuente de datos aquí.
-    // Por ahora, solo usaremos un conjunto de servicios de ejemplo.
-    setServices([
-      {
-        "_id": "65661bf555f534f5d8802016",
-        "servicionombre": "a",
-        "status": 1,
-        "user": {
-          "_id": "652b1b0a3849794592d82bda",
-          "username": "Joel",
-          "email": "joel@joel.com",
-          "password": "$2a$10$BFZp0SSYapM2e998Gt9xq.BBKSGrH.nCeJRTcdCTU27nK19q91OFK",
-          "createdAt": "2023-10-14T22:49:46.781Z",
-          "updatedAt": "2023-10-14T22:49:46.781Z",
-          "__v": 0
-        },
-        "createdAt": "2023-11-28T16:57:25.460Z",
-        "updatedAt": "2023-11-28T18:18:13.086Z",
-        "__v": 0
-      },
-      {
-        "_id": "65662c6255f534f5d8808b6c",
-        "servicionombre": "b",
-        "status": 1,
-        "user": {
-          "_id": "652b1b0a3849794592d82bda",
-          "username": "Joel",
-          "email": "joel@joel.com",
-          "password": "$2a$10$BFZp0SSYapM2e998Gt9xq.BBKSGrH.nCeJRTcdCTU27nK19q91OFK",
-          "createdAt": "2023-10-14T22:49:46.781Z",
-          "updatedAt": "2023-10-14T22:49:46.781Z",
-          "__v": 0
-        },
-        "createdAt": "2023-11-28T18:07:30.369Z",
-        "updatedAt": "2023-11-28T18:28:24.743Z",
-        "__v": 0
+    const fetchData = async () => {
+      try {
+        const result = await getTypeServices();
+        setServices(result);
+      } catch (error) {
+        console.error('Error al obtener servicios:', error);
       }
-    ]);
-    
+    };
+
+    fetchData();
   }, []);
 
   const handleAddService = () => {
-    /* setServices([...services, { ...newService, id: String(Date.now()) }]);
-    setNewService({ id: '', servicionombre: '' }); */
-    console.log(newService);
+    // Restablece el estado de newService y cierra la barra lateral
+    setNewService({ servicionombre: '' });
+    /* console.log(newService); */
     createTypeService(newService);
+    // Actualizar el estado local con los servicios actualizados
+    setServices(getTypeServices());
     closeSidebar();
   };
 
   const handleEditService = (_id) => {
-    const selectedService = services.find(service => service._id === _id);
+    const selectedService = typeservices.find(service => service._id === _id);
     setNewService({ ...selectedService });
     openSidebar();
   };
-
+  
   const handleUpdateService = async () => {
     try {
       // Actualiza el servicio utilizando updateTypeService
       await updateTypeService(newService._id, newService);
-
       // Actualiza el estado local con el servicio actualizado
-      /* setServices(services.map(service =>
-        service._id === newService._id ? { ...service, ...newService } : service
-      )); */
-
+      setServices(getTypeServices());
       // Restablece el estado de newService y cierra la barra lateral
       setNewService({ servicionombre: '' });
       closeSidebar();
@@ -88,18 +58,14 @@ const TypeServicePage = () => {
     }
   };
 
-
   const handleDeleteService = async (_id) => {
     const isConfirmed = window.confirm("¿Estás seguro de que deseas eliminar este servicio?");
     if (isConfirmed) {
       try {
         // Eliminar el servicio utilizando deleteTypeService
         await deleteTypeService(_id);
-
         // Actualizar el estado local con los servicios actualizados
-        /* const updatedServices = await getTypeServices();
-        setServices(updatedServices); */
-
+        setServices(getTypeServices());
         // Cerrar la barra lateral
         closeSidebar();
       } catch (error) {
@@ -152,15 +118,27 @@ const TypeServicePage = () => {
     [handleEditService, handleDeleteService]
   );
 
+  // Mapeo de datos para la tabla
+  let servicesData = useMemo(() => {
+    if (typeservices) {
+      return typeservices.map((item) => ({
+        _id: item._id,
+        servicionombre: `${item.servicionombre}`.toUpperCase(),
+      }));
+    } else {
+      return [];
+    }
+  }, [typeservices]);
+
   // Configuración de la tabla
   const table = useMaterialReactTable({
     columns,
-    data: services,
+    data: servicesData || [],
     localization: MRT_Localization_ES,
   });
 
   return (
-    <div className="flex flex-wrap my-3 -mx-0 items-center justify-center">
+    <div className="flex flex-wrap my-3 -mx-0 items-center justify-center z-index: -1">
       <div className="flex items-center">
         <div className="mx-4">
           <h5 className="mb-0 font-bold dark:text-white">Listado de Servicios</h5>
@@ -179,7 +157,7 @@ const TypeServicePage = () => {
         <MaterialReactTable table={table} />
       </div>
       {isSidebarVisible && (
-        <TypeServicesSidebar
+        <TypeServiceSidebar
           newService={newService}
           setNewService={setNewService}
           handleUpdateService={handleUpdateService}

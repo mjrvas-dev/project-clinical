@@ -1,6 +1,6 @@
 import React from 'react';
 
-const TypeServicesSidebar = ({
+const TypeServiceSidebar = ({
     newService,
     setNewService,
     handleUpdateService,
@@ -32,4 +32,4 @@ const TypeServicesSidebar = ({
     );
 };
 
-export default TypeServicesSidebar;
+export default TypeServiceSidebar;

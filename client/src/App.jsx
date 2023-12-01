@@ -14,7 +14,8 @@ import PatientsPage from './pages/PatientsPage'
 import PatientFormPage from './pages/PatientFormPage'
 import PatientProfileFormPage from './pages/PatientProfileFormPage'
 import DateingPage from './pages/DateingPage'
-import TypeServiesPage from './pages/TypeServicesPage'
+import TypeServicePage from './pages/TypeServicesPage'
+
 
 import ProtectedRoute from './ProtectedRoute'
 import { TaskProvider } from './context/TasksContext'
@@ -28,8 +29,8 @@ function App() {
     <AuthProvider>
       <TaskProvider>
         <DoctorProvider>
-          <TypeServiceProvider>
-            <PatientProvider>
+          <PatientProvider>
+            <TypeServiceProvider>
               <BrowserRouter>
                 <main className='container mx-auto px-10'>
                   <Navbar />
@@ -51,13 +52,13 @@ function App() {
                       <Route path='/patients/:id' element={<PatientFormPage />} />
                       <Route path='/patientsprofile/:id' element={<PatientProfileFormPage />} />
                       <Route path='/dateing' element={<DateingPage />} />
-                      <Route path='/typeservies' element={<TypeServiesPage />} />
+                      <Route path='/typeservices' element={<TypeServicePage />} />
                     </Route>
                   </Routes>
                 </main>
               </BrowserRouter>
-            </PatientProvider>
-          </TypeServiceProvider>
+            </TypeServiceProvider>
+          </PatientProvider>
         </DoctorProvider>
       </TaskProvider>
     </AuthProvider>
