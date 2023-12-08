@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { usePatients } from "../context/PatientsContext";
 import PatientProfileCard from "../components/PatientProfileCard";
+import ExpedientePatientCard from "../components/ExpedientePatientCard";
 import { useNavigate, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import dayjs from "dayjs";
@@ -51,8 +52,14 @@ function PatientProfileFormPage() {
                     Regresar
                 </Link>
             </div>
-            <div className="bg-zinc-650 max-w-full w-full my-3 py-5 p-5 px-5 mx-0 mt-3 m-auto flex-0 lg:w-12/11 rounded-md">
+            <div className="bg-zinc-650 max-w-full w-full my-3 py-5 p-5 px-5 pb-0 mx-0 mt-3 m-auto flex-0 lg:w-12/11 rounded-md">
                 <PatientProfileCard patient={patient} />
+            </div>
+            {/* <div className="flex items-center justify-between">
+                <h5 className="mb-1 dark:text-white uppercase"><strong className="text-sm leading-normal text-slate-500 dark:text-white">Listado de Expedientes</strong></h5>
+            </div> */}
+            <div className="bg-zinc-650 max-w-full w-full my-0 py-0 p-0 px-5 mx-0 mt-0 m-auto flex-0 lg:w-12/11 rounded-md">
+                <ExpedientePatientCard id={id} patient={patient} />
             </div>
         </div>
     );

@@ -47,22 +47,22 @@ function PatientProfileCard({ patient }) {
                             </div>
                             <div className="flex-auto p-3">
                                 <ul className="flex flex-col pl-0 mb-0 rounded-lg">
-                                    <li className="relative block px-4 py-2 pt-0 pl-0 text-sm leading-normal border-0 rounded-t-lg">
+                                    <li className="relative block px-4 py-0 pt-0 pl-0 text-sm leading-normal border-0 rounded-t-lg">
                                         <strong className="text-slate-500 dark:text-white">Identificacion:</strong> &nbsp; {identificationType} - {patient.identificacion}
                                     </li>
-                                    <li className="relative block px-4 py-2 pl-0 text-sm leading-normal border-0 border-t-0">
+                                    <li className="relative block px-4 py-0 pl-0 text-sm leading-normal border-0 border-t-0">
                                         <strong className="text-slate-500 dark:text-white">Fecha Nacimiento:</strong> &nbsp; {dayjs(patient.fechanacimiento).utc().format("DD/MM/YYYY")}
                                     </li>
-                                    <li className="relative block px-4 py-2 pl-0 text-sm leading-normal border-0 border-t-0">
+                                    <li className="relative block px-4 py-0 pl-0 text-sm leading-normal border-0 border-t-0">
                                         <strong className="text-slate-500 dark:text-white">Telefono:</strong> &nbsp; {patient.telefono}
                                     </li>
-                                    <li className="relative block px-4 py-2 pl-0 text-sm leading-normal border-0 border-t-0">
+                                    <li className="relative block px-4 py-0 pl-0 text-sm leading-normal border-0 border-t-0">
                                         <strong className="text-slate-500 dark:text-white">Correo:</strong> &nbsp; {patient.email}
                                     </li>
-                                    <li className="relative block px-4 py-2 pl-0 text-sm leading-normal border-0 border-t-0">
+                                    <li className="relative block px-4 py-0 pl-0 text-sm leading-normal border-0 border-t-0">
                                         <strong className="text-slate-500 dark:text-white">Direccion:</strong> &nbsp; {patient.direccion}
                                     </li>
-                                    <li className="relative block px-4 py-2 pl-0 text-sm leading-normal border-0 border-t-0">
+                                    <li className="relative block px-4 py-0 pl-0 text-sm leading-normal border-0 border-t-0">
                                         <strong className="text-slate-500 dark:text-white">Datos de Emergencia:</strong> &nbsp; {patient.emergencianombre} - {patient.emergenciatelefono}
                                     </li>
                                 </ul>
