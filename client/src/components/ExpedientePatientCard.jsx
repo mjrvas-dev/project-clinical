@@ -1,17 +1,22 @@
-import { usePatients } from "../context/PatientsContext";
+/* import { usePatients } from "../context/PatientsContext"; */
 import React, { useState, useEffect, useMemo } from 'react';
 import { Link, useNavigate } from "react-router-dom";
-
+import { Button, IconButton } from '@mui/material';
+import EditIcon from '@mui/icons-material/Edit';
+import DeleteIcon from '@mui/icons-material/Delete';
 import { MaterialReactTable, useMaterialReactTable } from 'material-react-table';
 import { MRT_Localization_ES } from 'material-react-table/locales/es';
 /* import TypeServiceSidebar from '../components/TypeServiceSidebar'; */
 import ExpedientePatientSidebar from "./ExpedientePatientSidebar";
 
-import { useTypeServices } from '../context/TypeServicesContext';
+/* import { useTypeServices } from '../context/TypeServicesContext'; */
+import { useExpedientes } from "../context/ExpedientesContext";
 
-/* import dayjs from "dayjs";
-import utc from 'dayjs/plugin/utc';
-dayjs.extend(utc); */
+import { getStatusText } from "../util/util";
+
+import dayjs from "dayjs";
+import utc from 'dayjs/plugin/utc'
+dayjs.extend(utc);
 
 function ExpedientePatientCard({ id, patient }) {
     /* const navigate = useNavigate();
@@ -28,16 +33,19 @@ function ExpedientePatientCard({ id, patient }) {
     }; */
 
     const [services, setServices] = useState([]);
-    const [newService, setNewService] = useState({ servicionombre: '' });
+    const [newService, setNewService] = useState({ typeservice: '' });
     const [isSidebarVisible, setIsSidebarVisible] = useState(false);
 
-    const { createTypeService, updateTypeService, deleteTypeService } = useTypeServices();
-    const { getTypeServices, typeservices } = useTypeServices();
+    /* const { createTypeService, updateTypeService, deleteTypeService } = useTypeServices();
+    const { getTypeServices, typeservices } = useTypeServices(); */
+
+    const { createExpediente, updateExpediente, deleteExpediente } = useExpedientes();
+    const { getExpedientes, expedientes } = useExpedientes();
 
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const result = await getTypeServices();
+                const result = await getExpedientes();
                 setServices(result);
             } catch (error) {
                 console.error('Error al obtener servicios:', error);
@@ -49,28 +57,31 @@ function ExpedientePatientCard({ id, patient }) {
 
     const handleAddService = () => {
         // Restablece el estado de newService y cierra la barra lateral
-        setNewService({ servicionombre: '' });
-        /* console.log(newService); */
-        createTypeService(newService);
+        setNewService({ typeservice: '' });
+        console.log(newService);
+        createExpediente(newService);
         // Actualizar el estado local con los servicios actualizados
-        setServices(getTypeServices());
+        setServices(getExpedientes());
         closeSidebar();
     };
 
     const handleEditService = (_id) => {
-        const selectedService = typeservices.find(service => service._id === _id);
+        const selectedService = expedientes.find(expediente => expediente._id === _id);
         setNewService({ ...selectedService });
+        console.log(selectedService._id)
         openSidebar();
     };
 
     const handleUpdateService = async () => {
         try {
             // Actualiza el servicio utilizando updateTypeService
-            await updateTypeService(newService._id, newService);
+            await updateExpediente(newService._id, newService);
+            console.log('update')
+            console.log(newService._id, newService.typeservice)
             // Actualiza el estado local con el servicio actualizado
-            setServices(getTypeServices());
+            setServices(getExpedientes());
             // Restablece el estado de newService y cierra la barra lateral
-            setNewService({ servicionombre: '' });
+            setNewService({ _id: '', typeservice: '', patient: '' });
             closeSidebar();
         } catch (error) {
             console.error('Error al actualizar servicio:', error);
@@ -82,9 +93,9 @@ function ExpedientePatientCard({ id, patient }) {
         if (isConfirmed) {
             try {
                 // Eliminar el servicio utilizando deleteTypeService
-                await deleteTypeService(_id);
+                await deleteExpediente(_id);
                 // Actualizar el estado local con los servicios actualizados
-                setServices(getTypeServices());
+                setServices(getExpedientes());
                 // Cerrar la barra lateral
                 closeSidebar();
             } catch (error) {
@@ -103,7 +114,7 @@ function ExpedientePatientCard({ id, patient }) {
 
     const EditDeleteButtons = ({ onEdit, onDelete }) => (
         <>
-            <button
+            {/* <button
                 onClick={onEdit}
                 className="inline-block px-4 py-1.5 m-0 mb-0 mr-1 text-xs font-bold leading-normal text-center text-white align-middle transition-all ease-in bg-blue-800 hover:bg-blue-600 border-0 rounded-lg shadow-md cursor-pointer tracking-tight-rem hover:-translate-y-px active:opacity-85"
             >
@@ -114,18 +125,41 @@ function ExpedientePatientCard({ id, patient }) {
                 className="inline-block px-4 py-1.5 m-0 mb-0 mr-1 text-xs font-bold leading-normal text-center text-white align-middle transition-all ease-in bg-red-800 hover:bg-red-600 border-0 rounded-lg shadow-md cursor-pointer tracking-tight-rem hover:-translate-y-px active:opacity-85"
             >
                 Eliminar
-            </button>
+            </button> */}
+            <IconButton
+                onClick={onEdit}
+                className="text-blue-800"
+                aria-label="Editar"
+            >
+                <EditIcon />
+            </IconButton>
+            <IconButton
+                onClick={onDelete}
+                className="text-red-800"
+                aria-label="Eliminar"
+            >
+                <DeleteIcon />
+            </IconButton>
         </>
     );
 
     // Configuración de las columnas de la tabla
     const columns = useMemo(
         () => [
-            { accessorKey: 'servicionombre', header: 'Nombre del Servicio', size: 300 },
+            { accessorKey: 'correlativo', header: 'No. Expediente', size: 10 },
+            { accessorKey: 'servicionombre', header: 'Nombre del Servicio', size: 100 },
+            { accessorKey: 'fechainicio', header: 'Creacion', size: 100 },
+            {
+                accessorKey: 'status',
+                header: 'Estatus',
+                size: 100,
+                Cell: ({ row }) => getStatusText(row.original.status), // Utiliza getStatusText para obtener el componente de badge
+            },
             {
                 accessorKey: 'options',
                 header: 'Opciones',
                 size: 150,
+                align: 'right',
                 Cell: ({ row }) => (
                     <EditDeleteButtons
                         onEdit={() => handleEditService(row.original._id)}
@@ -138,21 +172,24 @@ function ExpedientePatientCard({ id, patient }) {
     );
 
     // Mapeo de datos para la tabla
-    let servicesData = useMemo(() => {
-        if (typeservices) {
-            return typeservices.map((item) => ({
+    let expedientesData = useMemo(() => {
+        if (expedientes) {
+            return expedientes.map((item) => ({
                 _id: item._id,
-                servicionombre: `${item.servicionombre}`.toUpperCase(),
+                correlativo: 'EXP' + item.correlativo,
+                fechainicio: dayjs(item.fechainicio).utc().format("DD/MM/YYYY H:m:s"),
+                status: item.status,
+                servicionombre: `${item.typeservice.servicionombre}`.toUpperCase(),
             }));
         } else {
             return [];
         }
-    }, [typeservices]);
+    }, [expedientes]);
 
     // Configuración de la tabla
     const table = useMaterialReactTable({
         columns,
-        data: servicesData || [],
+        data: expedientesData || [],
         localization: MRT_Localization_ES,
     });
 
@@ -250,6 +287,8 @@ function ExpedientePatientCard({ id, patient }) {
                                         handleUpdateService={handleUpdateService}
                                         handleAddService={handleAddService}
                                         closeSidebar={closeSidebar}
+                                        // Pasar el ID del paciente como prop
+                                        patientId={patient._id}
                                     />
                                 )}
                             </div>

@@ -22,6 +22,7 @@ import { TaskProvider } from './context/TasksContext'
 import { DoctorProvider } from './context/DoctorsContext'
 import { PatientProvider } from './context/PatientsContext'
 import { TypeServiceProvider } from './context/TypeServicesContext'
+import { ExpedienteProvider } from './context/ExpedientesContext'
 import Navbar from './components/Navbar'
 
 function App() {
@@ -31,32 +32,34 @@ function App() {
         <DoctorProvider>
           <PatientProvider>
             <TypeServiceProvider>
-              <BrowserRouter>
-                <main className='container mx-auto px-10'>
-                  <Navbar />
-                  <Routes>
-                    <Route path='/' element={<HomePage />} />
-                    <Route path='/login' element={<LoginPage />} />
-                    <Route path='/register' element={<RegisterPage />} />
-                    <Route element={<ProtectedRoute />}>
-                      <Route path='/calendar' element={<CalendarPage />} />
-                      <Route path='/profile' element={<ProfilePage />} />
-                      <Route path='/tasks' element={<TasksPage />} />
-                      <Route path='/add-task' element={<TaskFormPage />} />
-                      <Route path='/tasks/:id' element={<TaskFormPage />} />
-                      <Route path='/doctors' element={<DoctorsPage />} />
-                      <Route path='/add-doctor' element={<DoctorFormPage />} />
-                      <Route path='/doctors/:id' element={<DoctorFormPage />} />
-                      <Route path='/patients' element={<PatientsPage />} />
-                      <Route path='/add-patient' element={<PatientFormPage />} />
-                      <Route path='/patients/:id' element={<PatientFormPage />} />
-                      <Route path='/patientsprofile/:id' element={<PatientProfileFormPage />} />
-                      <Route path='/dateing' element={<DateingPage />} />
-                      <Route path='/typeservices' element={<TypeServicePage />} />
-                    </Route>
-                  </Routes>
-                </main>
-              </BrowserRouter>
+              <ExpedienteProvider>
+                <BrowserRouter>
+                  <main className='container mx-auto px-10'>
+                    <Navbar />
+                    <Routes>
+                      <Route path='/' element={<HomePage />} />
+                      <Route path='/login' element={<LoginPage />} />
+                      <Route path='/register' element={<RegisterPage />} />
+                      <Route element={<ProtectedRoute />}>
+                        <Route path='/calendar' element={<CalendarPage />} />
+                        <Route path='/profile' element={<ProfilePage />} />
+                        <Route path='/tasks' element={<TasksPage />} />
+                        <Route path='/add-task' element={<TaskFormPage />} />
+                        <Route path='/tasks/:id' element={<TaskFormPage />} />
+                        <Route path='/doctors' element={<DoctorsPage />} />
+                        <Route path='/add-doctor' element={<DoctorFormPage />} />
+                        <Route path='/doctors/:id' element={<DoctorFormPage />} />
+                        <Route path='/patients' element={<PatientsPage />} />
+                        <Route path='/add-patient' element={<PatientFormPage />} />
+                        <Route path='/patients/:id' element={<PatientFormPage />} />
+                        <Route path='/patientsprofile/:id' element={<PatientProfileFormPage />} />
+                        <Route path='/dateing' element={<DateingPage />} />
+                        <Route path='/typeservices' element={<TypeServicePage />} />
+                      </Route>
+                    </Routes>
+                  </main>
+                </BrowserRouter>
+              </ExpedienteProvider>
             </TypeServiceProvider>
           </PatientProvider>
         </DoctorProvider>
