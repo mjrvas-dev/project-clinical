@@ -7,8 +7,8 @@ import React from 'react';
         return status === 1 ? 'Activo' : 'Inactivo';
     }; */
 
-    export const getStatusText = (status) => {
-        const statusMapping = {
+    export const getEtapaText = (etapa) => {
+        const etapaMapping = {
             0: { text: 'Eliminado', class: 'bg-red-500 text-white' },
             1: { text: 'Creado', class: 'bg-emerald-500' },
             2: { text: 'En Proceso', class: 'bg-amber-500' },
@@ -16,10 +16,10 @@ import React from 'react';
             default: { text: 'Desconocido', class: 'badge-unknown' },
         };
 
-        const { text, class: statusClass } = statusMapping[status] || statusMapping.default;
+        const { text, class: etapaClass } = etapaMapping[etapa] || etapaMapping.default;
 
         return (
-            <span className={`badge ${statusClass}`}>
+            <span className={`badge ${etapaClass}`}>
                 {text}
             </span>
         );

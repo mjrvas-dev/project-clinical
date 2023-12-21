@@ -16,7 +16,7 @@ const ExpedientePatientSidebar = ({
 
     useEffect(() => {
         getTypeServices();
-        console.log('sidebar')
+        console.log('sidebar valor 1')
         console.log(newService)
         // Configura un temporizador para ocultar el error después de 3 segundos
         const timeout = setTimeout(() => {
@@ -43,7 +43,7 @@ const ExpedientePatientSidebar = ({
 
     const handleAddOrUpdateService = () => {
         if (validateForm()) {
-            if (newService.typeservice._id) {
+            if (newService._id) {
                 handleUpdateService();
             } else {
                 handleAddService();
@@ -53,7 +53,7 @@ const ExpedientePatientSidebar = ({
 
     return (
         <div className="fixed top-0 right-0 h-full w-1/4 bg-gray-800 p-4 z-50">
-            <h2 className="text-white mb-4">{newService.typeservice._id ? 'Editar Expediente' : 'Crear Nuevo Expediente'}</h2>
+            <h2 className="text-white mb-4">{newService._id ? 'Editar Expediente' : 'Crear Nuevo Expediente'}</h2>
 
             {/* Agregar un campo de solo lectura para mostrar el ID del paciente */}
             <input
@@ -67,7 +67,7 @@ const ExpedientePatientSidebar = ({
 
             <select
                 value={newService.typeservice._id}
-                onChange={(e) => setNewService({...newService, typeservice: { _id: e.target.value }, patient: patientId })}
+                onChange={(e) => setNewService({...newService, typeservice: e.target.value, patient: patientId })}
                 className="w-full bg-gray-700 text-white px-4 py-2 my-2 mb-2 rounded-md uppercase"
                 autoFocus="autofocus"
             >
@@ -80,8 +80,13 @@ const ExpedientePatientSidebar = ({
             </select>
 
             <button onClick={handleAddOrUpdateService} className="w-full bg-indigo-500 text-white px-4 py-2 rounded-md my-2 mb-2">
-                {newService.typeservice._id ? 'Actualizar Expediente' : 'Agregar Expediente'}
+                {newService._id ? 'Actualizar Expediente' : 'Agregar Expediente'}
             </button>
+            {/* {newService._id ? (
+                <button onClick={handleUpdateService} className="w-full bg-indigo-500 text-white px-4 py-2 rounded-md my-2 mb-2">Actualizar Servicio</button>
+            ) : (
+                <button onClick={handleAddService} className="w-full bg-indigo-500 text-white px-4 py-2 rounded-md my-2 mb-2">Agregar Servicio</button>
+            )} */}
             <button onClick={() => { resetForm(); closeSidebar(); }} className="w-full bg-zinc-700 text-white px-4 py-2 rounded-md my-2 mb-2">Cancelar</button>
             
             {error && (

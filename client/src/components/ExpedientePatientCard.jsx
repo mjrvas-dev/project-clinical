@@ -12,7 +12,7 @@ import ExpedientePatientSidebar from "./ExpedientePatientSidebar";
 /* import { useTypeServices } from '../context/TypeServicesContext'; */
 import { useExpedientes } from "../context/ExpedientesContext";
 
-import { getStatusText } from "../util/util";
+import { getEtapaText } from "../util/util";
 
 import dayjs from "dayjs";
 import utc from 'dayjs/plugin/utc'
@@ -55,20 +55,20 @@ function ExpedientePatientCard({ id, patient }) {
         fetchData();
     }, []);
 
-    const handleAddService = () => {
+    const handleAddService = async  () => {
         // Restablece el estado de newService y cierra la barra lateral
         setNewService({ typeservice: '' });
         console.log(newService);
-        createExpediente(newService);
+        await createExpediente(newService);
         // Actualizar el estado local con los servicios actualizados
-        setServices(getExpedientes());
+        await setServices(getExpedientes());
         closeSidebar();
     };
 
     const handleEditService = (_id) => {
         const selectedService = expedientes.find(expediente => expediente._id === _id);
         setNewService({ ...selectedService });
-        console.log(selectedService._id)
+        console.log(selectedService)
         openSidebar();
     };
 
@@ -77,7 +77,7 @@ function ExpedientePatientCard({ id, patient }) {
             // Actualiza el servicio utilizando updateTypeService
             await updateExpediente(newService._id, newService);
             console.log('update')
-            console.log(newService._id, newService.typeservice)
+            console.log(newService._id, newService)
             // Actualiza el estado local con el servicio actualizado
             setServices(getExpedientes());
             // Restablece el estado de newService y cierra la barra lateral
@@ -153,7 +153,7 @@ function ExpedientePatientCard({ id, patient }) {
                 accessorKey: 'status',
                 header: 'Estatus',
                 size: 100,
-                Cell: ({ row }) => getStatusText(row.original.status), // Utiliza getStatusText para obtener el componente de badge
+                Cell: ({ row }) => getEtapaText(row.original.status), // Utiliza getEtapaText para obtener el componente de badge
             },
             {
                 accessorKey: 'options',
