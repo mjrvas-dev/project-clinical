@@ -4,6 +4,8 @@ import { usePatients } from "../context/PatientsContext";
 import { useNavigate, useParams } from "react-router-dom";
 import { useEffect } from "react";
 
+import { Label } from "../components/ui";
+
 import dayjs from "dayjs";
 import utc from 'dayjs/plugin/utc';
 dayjs.extend(utc);
@@ -66,7 +68,8 @@ function PatientFormPage() {
                     <div>
                         <div className="flex flex-wrap mt-4 -mx-3">
                             <div className="w-full max-w-full px-3 flex-0 sm:w-3/12">
-                                <label className="mb-2 ml-1 text-xs font-bold text-slate-700 dark:text-white/80" htmlFor="primernombre">Primer Nombre</label>
+                                {/* <label className="mb-2 ml-1 text-xs font-bold text-slate-700 dark:text-white/80" htmlFor="primernombre">Primer Nombre</label> */}
+                                <Label htmlFor="primernombre">Primer Nombre</Label>
                                 <input type="text"
                                     {...register("primernombre")}
                                     className="w-full bg-zinc-700 text-white px-4 py-2 rounded-lg my-2 uppercase"
@@ -74,21 +77,24 @@ function PatientFormPage() {
                                 />
                             </div>
                             <div className="w-full max-w-full px-3 flex-0 sm:w-3/12">
-                                <label className="mb-2 ml-1 text-xs font-bold text-slate-700 dark:text-white/80" htmlFor="Segundonombre">Segundo Nombre</label>
+                                {/* <label className="mb-2 ml-1 text-xs font-bold text-slate-700 dark:text-white/80" htmlFor="Segundonombre">Segundo Nombre</label> */}
+                                <Label htmlFor="Segundonombre">Segundo Nombre</Label>
                                 <input type="text"
                                     {...register("segundonombre")}
                                     className="w-full bg-zinc-700 text-white px-4 py-2 rounded-lg my-2 uppercase"
                                 />
                             </div>
                             <div className="w-full max-w-full px-3 flex-0 sm:w-3/12">
-                                <label className="mb-2 ml-1 text-xs font-bold text-slate-700 dark:text-white/80" htmlFor="primerapellido">Primer Apellido</label>
+                                {/* <label className="mb-2 ml-1 text-xs font-bold text-slate-700 dark:text-white/80" htmlFor="primerapellido">Primer Apellido</label> */}
+                                <Label htmlFor="primerapellido">Primer Apellido</Label>
                                 <input type="text"
                                     {...register("primerapellido")}
                                     className="w-full bg-zinc-700 text-white px-4 py-2 rounded-lg my-2 uppercase"
                                 />
                             </div>
                             <div className="w-full max-w-full px-3 flex-0 sm:w-3/12">
-                                <label className="mb-2 ml-1 text-xs font-bold text-slate-700 dark:text-white/80" htmlFor="segundoapellido">Segundo Apellido</label>
+                                {/* <label className="mb-2 ml-1 text-xs font-bold text-slate-700 dark:text-white/80" htmlFor="segundoapellido">Segundo Apellido</label> */}
+                                <Label htmlFor="segundoapellido">Segundo Apellido</Label>
                                 <input type="text"
                                     {...register("segundoapellido")}
                                     className="w-full bg-zinc-700 text-white px-4 py-2 rounded-lg my-2 uppercase"
@@ -99,7 +105,8 @@ function PatientFormPage() {
                     <div>
                         <div className="flex flex-wrap mt-4 -mx-3">
                             <div className="w-full max-w-full px-3 flex-0 sm:w-3/12">
-                                <label className="mb-2 ml-1 text-xs font-bold text-slate-700 dark:text-white/80" htmlFor="genero">Genero</label>
+                                {/* <label className="mb-2 ml-1 text-xs font-bold text-slate-700 dark:text-white/80" htmlFor="genero">Genero</label> */}
+                                <Label htmlFor="genero">Genero</Label>
                                 {/* <input type="text"
                                     {...register("genero")}
                                     className="w-full bg-zinc-700 text-white px-4 py-2 rounded-lg my-2 uppercase"
@@ -114,7 +121,8 @@ function PatientFormPage() {
                                 </select>
                             </div>
                             <div className="w-full max-w-full px-3 flex-0 sm:w-3/12">
-                                <label className="mb-2 ml-1 text-xs font-bold text-slate-700 dark:text-white/80" htmlFor="tipoidentificacion">Tipo Identificacion</label>
+                                {/* <label className="mb-2 ml-1 text-xs font-bold text-slate-700 dark:text-white/80" htmlFor="tipoidentificacion">Tipo Identificacion</label> */}
+                                <Label htmlFor="tipoidentificacion">Tipo Identificacion</Label>
                                 {/* <input type="text"
                                     {...register("tipoidentificacion")}
                                     className="w-full bg-zinc-700 text-white px-4 py-2 rounded-lg my-2 uppercase"
@@ -128,14 +136,16 @@ function PatientFormPage() {
                                 </select>
                             </div>
                             <div className="w-full max-w-full px-3 flex-0 sm:w-3/12">
-                                <label className="mb-2 ml-1 text-xs font-bold text-slate-700 dark:text-white/80" htmlFor="identificacion">No. Identificacion</label>
+                                {/* <label className="mb-2 ml-1 text-xs font-bold text-slate-700 dark:text-white/80" htmlFor="identificacion">No. Identificacion</label> */}
+                                <Label htmlFor="identificacion">No. Identificacion</Label>
                                 <input type="text"
                                     {...register("identificacion")}
                                     className="w-full bg-zinc-700 text-white px-4 py-2 rounded-lg my-2 uppercase"
                                 />
                             </div>
                             <div className="w-full max-w-full px-3 flex-0 sm:w-3/12">
-                                <label className="mb-2 ml-1 text-xs font-bold text-slate-700 dark:text-white/80" htmlFor="fechanacimiento">Fecha Nacimiento</label>
+                                {/* <label className="mb-2 ml-1 text-xs font-bold text-slate-700 dark:text-white/80" htmlFor="fechanacimiento">Fecha Nacimiento</label> */}
+                                <Label htmlFor="fechanacimiento">Fecha Nacimiento</Label>
                                 <input type="date"
                                     {...register("fechanacimiento")}
                                     className="w-full bg-zinc-700 text-white px-4 py-2 rounded-lg my-2 uppercase"
@@ -146,21 +156,24 @@ function PatientFormPage() {
                     <div>
                         <div className="flex flex-wrap mt-4 -mx-3">
                             <div className="w-full max-w-full px-3 flex-0 sm:w-3/12">
-                                <label className="mb-2 ml-1 text-xs font-bold text-slate-700 dark:text-white/80" htmlFor="telefono">No. Telefono</label>
+                                {/* <label className="mb-2 ml-1 text-xs font-bold text-slate-700 dark:text-white/80" htmlFor="telefono">No. Telefono</label> */}
+                                <Label htmlFor="telefono">No. Telefono</Label>
                                 <input type="number"
                                     {...register("telefono")}
                                     className="w-full bg-zinc-700 text-white px-4 py-2 rounded-lg my-2"
                                 />
                             </div>
                             <div className="w-full max-w-full px-3 flex-0 sm:w-3/12">
-                                <label className="mb-2 ml-1 text-xs font-bold text-slate-700 dark:text-white/80" htmlFor="email">Correo Electronico</label>
+                                {/* <label className="mb-2 ml-1 text-xs font-bold text-slate-700 dark:text-white/80" htmlFor="email">Correo Electronico</label> */}
+                                <Label htmlFor="email">Correo Electronico</Label>
                                 <input type="email"
                                     {...register("email")}
                                     className="w-full bg-zinc-700 text-white px-4 py-2 rounded-lg my-2 uppercase"
                                 />
                             </div>
                             <div className="w-full max-w-full px-3 flex-0 sm:w-6/12">
-                                <label className="mb-2 ml-1 text-xs font-bold text-slate-700 dark:text-white/80" htmlFor="direccion">Direccion</label>
+                                {/* <label className="mb-2 ml-1 text-xs font-bold text-slate-700 dark:text-white/80" htmlFor="direccion">Direccion</label> */}
+                                <Label htmlFor="direccion">Direccion</Label>
                                 <input type="text"
                                     {...register("direccion")}
                                     className="w-full bg-zinc-700 text-white px-4 py-2 rounded-lg my-2 uppercase"
@@ -171,14 +184,16 @@ function PatientFormPage() {
                     <div>
                         <div className="flex flex-wrap mt-4 -mx-3">
                             <div className="w-full max-w-full px-3 flex-0 sm:w-3/12">
-                                <label className="mb-2 ml-1 text-xs font-bold text-slate-700 dark:text-white/80" htmlFor="emergencianombre">Nombre Completo de Emergencia</label>
+                                {/* <label className="mb-2 ml-1 text-xs font-bold text-slate-700 dark:text-white/80" htmlFor="emergencianombre">Nombre Completo de Emergencia</label> */}
+                                <Label htmlFor="emergencianombre">Nombre Completo de Emergencia</Label>
                                 <input type="text"
                                     {...register("emergencianombre")}
                                     className="w-full bg-zinc-700 text-white px-4 py-2 rounded-lg my-2 uppercase"
                                 />
                             </div>
                             <div className="w-full max-w-full px-3 flex-0 sm:w-3/12">
-                                <label className="mb-2 ml-1 text-xs font-bold text-slate-700 dark:text-white/80" htmlFor="emergenciatelefono">No. Telefono de Emergencia</label>
+                                {/* <label className="mb-2 ml-1 text-xs font-bold text-slate-700 dark:text-white/80" htmlFor="emergenciatelefono">No. Telefono de Emergencia</label> */}
+                                <Label htmlFor="emergenciatelefono">No. Telefono de Emergencia</Label>
                                 <input type="number"
                                     {...register("emergenciatelefono")}
                                     className="w-full bg-zinc-700 text-white px-4 py-2 rounded-lg my-2"
@@ -189,7 +204,8 @@ function PatientFormPage() {
                     <div>
                         <div className="flex flex-wrap mt-4 -mx-3">
                             <div className="w-full max-w-full py-2 my-2 px-4 flex-0 sm:w-12/12">
-                                <label className="mb-2 ml-1 text-xs font-bold text-slate-700 dark:text-white/80" htmlFor="historialmedico">Historial Medico</label>
+                                {/* <label className="mb-2 ml-1 text-xs font-bold text-slate-700 dark:text-white/80" htmlFor="historialmedico">Historial Medico</label> */}
+                                <Label htmlFor="historialmedico">Historial Medico</Label>
                                 {/* <input type="text"
                                     {...register("historialmedico")}
                                     className="w-full bg-zinc-700 text-white px-4 py-2 rounded-lg my-2 uppercase"
@@ -203,7 +219,8 @@ function PatientFormPage() {
                                 </div>
                             </div>
                             <div className="w-full max-w-full py-2 my-2 px-4 flex-0 sm:w-12/12">
-                                <label className="mb-4 ml-1 text-xs font-bold text-slate-700 dark:text-white/80" htmlFor="medicamento">Medicamentos</label>
+                                {/* <label className="mb-4 ml-1 text-xs font-bold text-slate-700 dark:text-white/80" htmlFor="medicamento">Medicamentos</label> */}
+                                <Label htmlFor="medicamento">Medicamentos</Label>
                                 {/* <input type="text"
                                     {...register("medicamento")}
                                     className="w-full bg-zinc-700 text-white px-4 py-2 rounded-lg my-2 uppercase"
