@@ -17,8 +17,8 @@ const ExpedientePatientSidebar = ({
 
     useEffect(() => {
         getTypeServices();
-        console.log('sidebar valor 1')
-        console.log(newService)
+        /* console.log('sidebar valor 1')
+        console.log(newService) */
         // Configura un temporizador para ocultar el error después de 3 segundos
         const timeout = setTimeout(() => {
             setError('');

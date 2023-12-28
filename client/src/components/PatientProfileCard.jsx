@@ -23,7 +23,7 @@ function PatientProfileCard({ patient }) {
             <div className="flex flex-wrap -mx-3">
                 <div className="w-full max-w-full px-3 lg-max:mt-6 xl:w-/12">
                     <div className="flex flex-col h-full min-w-0 break-words border-0 shadow-xl dark:bg-slate-850 dark:shadow-dark-xl rounded-2xl bg-clip-border">
-                        <div className="flex flex-col flex-auto min-w-0 p-5 mx-0 overflow-hidden break-words bg-zinc-800 border-0 shadow-3xl dark:bg-slate-850 rounded-2xl bg-clip-border">
+                        <div className="flex flex-col flex-auto min-w-0 p-5 mx-0 overflow-hidden break-words bg-gray-700 border-0 shadow-3xl dark:bg-slate-850 rounded-2xl bg-clip-border">
                             <div className="flex-none w-auto max-w-full px-3 my-auto">
                                 <div className="flex items-center justify-between">
                                     <h5 className="mb-1 dark:text-white uppercase">

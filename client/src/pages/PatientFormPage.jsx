@@ -72,7 +72,7 @@ function PatientFormPage() {
                                 <Label htmlFor="primernombre">Primer Nombre</Label>
                                 <input type="text"
                                     {...register("primernombre")}
-                                    className="w-full bg-zinc-700 text-white px-4 py-2 rounded-lg my-2 uppercase"
+                                    className="w-full bg-slate-50 text-black px-4 py-2 rounded-lg my-2 uppercase"
                                     autoFocus
                                 />
                             </div>
@@ -81,7 +81,7 @@ function PatientFormPage() {
                                 <Label htmlFor="Segundonombre">Segundo Nombre</Label>
                                 <input type="text"
                                     {...register("segundonombre")}
-                                    className="w-full bg-zinc-700 text-white px-4 py-2 rounded-lg my-2 uppercase"
+                                    className="w-full bg-slate-50 text-black px-4 py-2 rounded-lg my-2 uppercase"
                                 />
                             </div>
                             <div className="w-full max-w-full px-3 flex-0 sm:w-3/12">
@@ -89,7 +89,7 @@ function PatientFormPage() {
                                 <Label htmlFor="primerapellido">Primer Apellido</Label>
                                 <input type="text"
                                     {...register("primerapellido")}
-                                    className="w-full bg-zinc-700 text-white px-4 py-2 rounded-lg my-2 uppercase"
+                                    className="w-full bg-slate-50 text-black px-4 py-2 rounded-lg my-2 uppercase"
                                 />
                             </div>
                             <div className="w-full max-w-full px-3 flex-0 sm:w-3/12">
@@ -97,7 +97,7 @@ function PatientFormPage() {
                                 <Label htmlFor="segundoapellido">Segundo Apellido</Label>
                                 <input type="text"
                                     {...register("segundoapellido")}
-                                    className="w-full bg-zinc-700 text-white px-4 py-2 rounded-lg my-2 uppercase"
+                                    className="w-full bg-slate-50 text-black px-4 py-2 rounded-lg my-2 uppercase"
                                 />
                             </div>
                         </div>
@@ -109,12 +109,12 @@ function PatientFormPage() {
                                 <Label htmlFor="genero">Genero</Label>
                                 {/* <input type="text"
                                     {...register("genero")}
-                                    className="w-full bg-zinc-700 text-white px-4 py-2 rounded-lg my-2 uppercase"
+                                    className="w-full bg-slate-50 text-black px-4 py-2 rounded-lg my-2 uppercase"
                                     autoFocus
                                 /> */}
                                 <select id="genero"
                                     {...register("genero")}
-                                    className="w-full px-4 py-2 my-2 p-2.5 border text-gray-900 text-sm rounded-lg block dark:bg-zinc-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white">
+                                    className="w-full px-4 py-2 my-2 p-2.5 border text-gray-900 text-sm rounded-lg block dark:bg-slate-50 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white">
                                     <option selected></option>
                                     <option value="0">Femenino</option>
                                     <option value="1">Masculino</option>
@@ -125,11 +125,11 @@ function PatientFormPage() {
                                 <Label htmlFor="tipoidentificacion">Tipo Identificacion</Label>
                                 {/* <input type="text"
                                     {...register("tipoidentificacion")}
-                                    className="w-full bg-zinc-700 text-white px-4 py-2 rounded-lg my-2 uppercase"
+                                    className="w-full bg-slate-50 text-black px-4 py-2 rounded-lg my-2 uppercase"
                                 /> */}
                                 <select id="tipoidentificacion"
                                     {...register("tipoidentificacion")}
-                                    className="w-full px-4 py-2 my-2 p-2.5 border text-gray-900 text-sm rounded-lg block dark:bg-zinc-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white">
+                                    className="w-full px-4 py-2 my-2 p-2.5 border text-gray-900 text-sm rounded-lg block dark:bg-slate-50 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white">
                                     <option selected></option>
                                     <option value="0">DPI</option>
                                     <option value="1">Pasaporte</option>
@@ -140,7 +140,7 @@ function PatientFormPage() {
                                 <Label htmlFor="identificacion">No. Identificacion</Label>
                                 <input type="text"
                                     {...register("identificacion")}
-                                    className="w-full bg-zinc-700 text-white px-4 py-2 rounded-lg my-2 uppercase"
+                                    className="w-full bg-slate-50 text-black px-4 py-2 rounded-lg my-2 uppercase"
                                 />
                             </div>
                             <div className="w-full max-w-full px-3 flex-0 sm:w-3/12">
@@ -148,7 +148,7 @@ function PatientFormPage() {
                                 <Label htmlFor="fechanacimiento">Fecha Nacimiento</Label>
                                 <input type="date"
                                     {...register("fechanacimiento")}
-                                    className="w-full bg-zinc-700 text-white px-4 py-2 rounded-lg my-2 uppercase"
+                                    className="w-full bg-slate-50 text-black px-4 py-2 rounded-lg my-2 uppercase"
                                 />
                             </div>
                         </div>
@@ -160,7 +160,7 @@ function PatientFormPage() {
                                 <Label htmlFor="telefono">No. Telefono</Label>
                                 <input type="number"
                                     {...register("telefono")}
-                                    className="w-full bg-zinc-700 text-white px-4 py-2 rounded-lg my-2"
+                                    className="w-full bg-slate-50 text-black px-4 py-2 rounded-lg my-2"
                                 />
                             </div>
                             <div className="w-full max-w-full px-3 flex-0 sm:w-3/12">
@@ -168,7 +168,7 @@ function PatientFormPage() {
                                 <Label htmlFor="email">Correo Electronico</Label>
                                 <input type="email"
                                     {...register("email")}
-                                    className="w-full bg-zinc-700 text-white px-4 py-2 rounded-lg my-2 uppercase"
+                                    className="w-full bg-slate-50 text-black px-4 py-2 rounded-lg my-2 uppercase"
                                 />
                             </div>
                             <div className="w-full max-w-full px-3 flex-0 sm:w-6/12">
@@ -176,7 +176,7 @@ function PatientFormPage() {
                                 <Label htmlFor="direccion">Direccion</Label>
                                 <input type="text"
                                     {...register("direccion")}
-                                    className="w-full bg-zinc-700 text-white px-4 py-2 rounded-lg my-2 uppercase"
+                                    className="w-full bg-slate-50 text-black px-4 py-2 rounded-lg my-2 uppercase"
                                 />
                             </div>
                         </div>
@@ -188,7 +188,7 @@ function PatientFormPage() {
                                 <Label htmlFor="emergencianombre">Nombre Completo de Emergencia</Label>
                                 <input type="text"
                                     {...register("emergencianombre")}
-                                    className="w-full bg-zinc-700 text-white px-4 py-2 rounded-lg my-2 uppercase"
+                                    className="w-full bg-slate-50 text-black px-4 py-2 rounded-lg my-2 uppercase"
                                 />
                             </div>
                             <div className="w-full max-w-full px-3 flex-0 sm:w-3/12">
@@ -196,7 +196,7 @@ function PatientFormPage() {
                                 <Label htmlFor="emergenciatelefono">No. Telefono de Emergencia</Label>
                                 <input type="number"
                                     {...register("emergenciatelefono")}
-                                    className="w-full bg-zinc-700 text-white px-4 py-2 rounded-lg my-2"
+                                    className="w-full bg-slate-50 text-black px-4 py-2 rounded-lg my-2"
                                 />
                             </div>
                         </div>
@@ -208,7 +208,7 @@ function PatientFormPage() {
                                 <Label htmlFor="historialmedico">Historial Medico</Label>
                                 {/* <input type="text"
                                     {...register("historialmedico")}
-                                    className="w-full bg-zinc-700 text-white px-4 py-2 rounded-lg my-2 uppercase"
+                                    className="w-full bg-slate-50 text-black px-4 py-2 rounded-lg my-2 uppercase"
                                 /> */}
                                 <div className="relative w-full min-w-[200px]">
                                     <textarea id="historialmedico"
@@ -223,7 +223,7 @@ function PatientFormPage() {
                                 <Label htmlFor="medicamento">Medicamentos</Label>
                                 {/* <input type="text"
                                     {...register("medicamento")}
-                                    className="w-full bg-zinc-700 text-white px-4 py-2 rounded-lg my-2 uppercase"
+                                    className="w-full bg-slate-50 text-black px-4 py-2 rounded-lg my-2 uppercase"
                                 /> */}
                                 <div className="relative w-full min-w-[200px]">
                                     <textarea id="medicamento"

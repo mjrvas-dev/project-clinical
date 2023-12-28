@@ -7,7 +7,7 @@ function Navbar() {
   const { isAuthenticated, logout, user } = useAuth();
 
   return (
-    <nav className="bg-zinc-700 my-3 justify-between py-5 px-10 mx-0 mt-3 shadow-2xl backdrop-blur-2xl backdrop-saturate-200 rounded-lg lg:flex-nowrap lg:justify-start">
+    <nav className="bg-slate-700 my-3 justify-between py-5 px-10 mx-0 mt-3 shadow-2xl backdrop-blur-2xl backdrop-saturate-200 rounded-lg lg:flex-nowrap lg:justify-start">
       <div className="container flex flex-wrap items-center justify-between px-0 overflow-hidden lg:flex-nowrap">
         {isAuthenticated ? (
           <>

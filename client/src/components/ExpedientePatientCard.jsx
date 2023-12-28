@@ -12,7 +12,7 @@ import ExpedientePatientSidebar from "./ExpedientePatientSidebar";
 /* import { useTypeServices } from '../context/TypeServicesContext'; */
 import { useExpedientes } from "../context/ExpedientesContext";
 
-import { getEtapaText } from "../util/util";
+import { getEtapaText, getStatusText } from "../util/util";
 
 import dayjs from "dayjs";
 import utc from 'dayjs/plugin/utc'
@@ -58,7 +58,7 @@ function ExpedientePatientCard({ id, patient }) {
     const handleAddService = async  () => {
         // Restablece el estado de newService y cierra la barra lateral
         setNewService({ typeservice: '' });
-        console.log(newService);
+        /* console.log(newService); */
         await createExpediente(newService);
         // Actualizar el estado local con los servicios actualizados
         await setServices(getExpedientes());
@@ -68,7 +68,7 @@ function ExpedientePatientCard({ id, patient }) {
     const handleEditService = (_id) => {
         const selectedService = expedientes.find(expediente => expediente._id === _id);
         setNewService({ ...selectedService });
-        console.log(selectedService)
+        /* console.log(selectedService) */
         openSidebar();
     };
 
@@ -76,8 +76,8 @@ function ExpedientePatientCard({ id, patient }) {
         try {
             // Actualiza el servicio utilizando updateTypeService
             await updateExpediente(newService._id, newService);
-            console.log('update')
-            console.log(newService._id, newService)
+            /* console.log('update')
+            console.log(newService._id, newService) */
             // Actualiza el estado local con el servicio actualizado
             setServices(getExpedientes());
             // Restablece el estado de newService y cierra la barra lateral
@@ -89,7 +89,7 @@ function ExpedientePatientCard({ id, patient }) {
     };
 
     const handleDeleteService = async (_id) => {
-        const isConfirmed = window.confirm("¿Estás seguro de que deseas eliminar este servicio?");
+        const isConfirmed = window.confirm("¿Estás seguro de que deseas eliminar este expediente?");
         if (isConfirmed) {
             try {
                 // Eliminar el servicio utilizando deleteTypeService
@@ -150,10 +150,16 @@ function ExpedientePatientCard({ id, patient }) {
             { accessorKey: 'servicionombre', header: 'Nombre del Servicio', size: 100 },
             { accessorKey: 'fechainicio', header: 'Creacion', size: 100 },
             {
+                accessorKey: 'etapa',
+                header: 'Etapa',
+                size: 50,
+                Cell: ({ row }) => getEtapaText(row.original.etapa), // Utiliza getEtapaText para obtener el componente de badge
+            },
+            {
                 accessorKey: 'status',
                 header: 'Estatus',
-                size: 100,
-                Cell: ({ row }) => getEtapaText(row.original.status), // Utiliza getEtapaText para obtener el componente de badge
+                size: 50,
+                Cell: ({ row }) => getStatusText(row.original.status), // Utiliza getEtapaText para obtener el componente de badge
             },
             {
                 accessorKey: 'options',
@@ -178,6 +184,7 @@ function ExpedientePatientCard({ id, patient }) {
                 _id: item._id,
                 correlativo: 'EXP' + item.correlativo,
                 fechainicio: dayjs(item.fechainicio).utc().format("DD/MM/YYYY H:m:s"),
+                etapa: item.etapa,
                 status: item.status,
                 servicionombre: `${item.typeservice.servicionombre}`.toUpperCase(),
             }));
@@ -198,7 +205,7 @@ function ExpedientePatientCard({ id, patient }) {
             <div className="flex flex-wrap -mx-3">
                 <div className="w-full max-w-full px-3 lg-max:mt-6 xl:w-/12">
                     <div className="flex flex-col h-full min-w-0 break-words border-0 shadow-xl dark:bg-slate-850 dark:shadow-dark-xl rounded-2xl bg-clip-border">
-                        <div className="flex flex-col flex-auto min-w-0 p-5 mx-0 overflow-hidden break-words bg-zinc-800 border-0 shadow-3xl dark:bg-slate-850 rounded-2xl bg-clip-border">
+                        <div className="flex flex-col flex-auto min-w-0 p-5 mx-0 overflow-hidden break-words bg-gray-700 border-0 shadow-3xl dark:bg-slate-850 rounded-2xl bg-clip-border">
                             <div className="flex-none w-auto max-w-full px-3 my-auto">
                                 {/* <div className="flex items-center justify-between">
                                     <h5 className="mb-1 dark:text-white uppercase">
